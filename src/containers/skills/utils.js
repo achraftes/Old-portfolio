@@ -89,7 +89,7 @@ export const skillsData=[
             },
             {
                 skillName:"WORD",
-                percentage:"50"
+                percentage:"57"
             },
             {
                 skillName:"POO",

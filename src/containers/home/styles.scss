@@ -1,4 +1,5 @@
-.home{
+// Update to your styles.scss file
+.home {
     position: relative;
     height: 100%;
     display: flex;
@@ -6,13 +7,45 @@
     align-content: center;
     flex-direction: column;
     text-align: center;
-    &__text-wrapper{
+    overflow: hidden; // Important for the background animations
+    
+    // Add animated background
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
+        z-index: -2;
+    }
+    
+    // Animated particles background
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: 
+            radial-gradient(var(--yellow-theme-main-color) 1px, transparent 1px),
+            radial-gradient(var(--yellow-theme-main-color) 1px, transparent 1px);
+        background-size: 50px 50px;
+        background-position: 0 0, 25px 25px;
+        opacity: 0.1;
+        z-index: -1;
+        animation: backgroundMove 20s linear infinite;
+    }
+
+    &__text-wrapper {
         display: flex;
         align-content: center;
         flex-direction: column;
         justify-content: center;
        
-        h1{
+        h1 {
             color: var(--yellow-theme-main-color);
             margin: 0px;
             font-weight: 500;
@@ -21,14 +54,16 @@
             position: relative;
             overflow: hidden;
             white-space: nowrap;
-            animation: typingEffectAnimation 2.5s steps(30,end);
+            animation: typingEffectAnimation 2.5s steps(30, end);
+            text-shadow: 0 0 10px rgba(var(--yellow-theme-main-color-rgb), 0.5);
         }
     }
-    &__contact-me{
+    
+    &__contact-me {
         display: flex;
         justify-content: center;
         margin-top: 15px;
-        button{
+        button {
             cursor: pointer;
             padding: 10px 70px;
             font-size: 2rem;
@@ -37,68 +72,116 @@
             border: 1.5px solid var(--yellow-theme-main-color);
             border-radius: 5px;
             font-weight: 500;
-            &:hover{
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: var(--yellow-theme-main-color);
+                opacity: 0.2;
+                transition: all 0.5s ease;
+                z-index: -1;
+            }
+            
+            &:hover {
                 background: var(--yellow-theme-main-color);
                 color: #000000;
+                box-shadow: 0 0 15px var(--yellow-theme-main-color);
+                
+                &::before {
+                    left: 100%;
+                }
             }
         }
     }
-    
+   
     /* Styles pour les icônes sociales */
     &__social {
         display: flex;
         justify-content: center;
         column-gap: 2rem;
         margin-top: 2.5rem;
-        
+       
         &-icon {
             font-size: 2.5rem;
             color: var(--yellow-theme-main-color);
             transition: 0.3s;
-            
+           
             &:hover {
                 transform: translateY(-8px);
                 color: var(--yellow-theme-main-color);
                 opacity: 0.8;
+                filter: drop-shadow(0 0 10px var(--yellow-theme-main-color));
             }
         }
     }
+    
+    // Floating particles
+    .particle {
+        position: absolute;
+        border-radius: 50%;
+        background-color: var(--yellow-theme-main-color);
+        opacity: 0.3;
+        z-index: -1;
+    }
 }
 
-@media only screen and (max-width: 550px){
-    .home__text-wrapper h1{
+// Media queries remain the same
+@media only screen and (max-width: 550px) {
+    .home__text-wrapper h1 {
         font-size: 3rem;
         line-height: 5rem;
     }
-    
+   
     .home__social-icon {
         font-size: 2rem;
     }
-    
+   
     .home__social {
         column-gap: 1.5rem;
     }
 }
 
-@media only screen and (min-width: 551px) and (max-width: 768px){
-    .home__text-wrapper h1{
+@media only screen and (min-width: 551px) and (max-width: 768px) {
+    .home__text-wrapper h1 {
         font-size: 3rem;
         line-height: 4rem;
     }
 }
 
-@media only screen and (min-width: 769px) and (max-width: 990px){
-    .home__text-wrapper h1{
+@media only screen and (min-width: 769px) and (max-width: 990px) {
+    .home__text-wrapper h1 {
         font-size: 3rem;
         line-height: 4rem;
     }
 }
 
-@keyframes typingEffectAnimation{
-    from{
+@keyframes typingEffectAnimation {
+    from {
         width: 0;
     }
-    to{
+    to {
         width: 100%;
     }
+}
+
+// New background movement animation
+@keyframes backgroundMove {
+    0% {
+        background-position: 0 0, 25px 25px;
+    }
+    100% {
+        background-position: 100px 100px, 125px 125px;
+    }
+}
+
+// Add this to your variables in :root
+:root {
+    --yellow-theme-main-color-rgb: 253, 184, 19; // Adjust based on your actual color
 }

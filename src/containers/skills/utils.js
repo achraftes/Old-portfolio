@@ -48,7 +48,7 @@ export const skillsData=[
             },
             {
                 skillName:"LARAVEL",
-                percentage:"60"
+                percentage:"90"
             },
         ]
     },

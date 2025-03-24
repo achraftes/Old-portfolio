@@ -5,17 +5,15 @@
     justify-content: center;
     align-content: center;
     flex-direction: column;
-    text-align: center; 
-
+    text-align: center;
     &__text-wrapper{
         display: flex;
         align-content: center;
         flex-direction: column;
         justify-content: center;
-        
-
+       
         h1{
-            color: var( --yellow-theme-main-color);
+            color: var(--yellow-theme-main-color);
             margin: 0px;
             font-weight: 500;
             font-size: 8rem;
@@ -30,7 +28,7 @@
         display: flex;
         justify-content: center;
         margin-top: 15px;
-        button{ 
+        button{
             cursor: pointer;
             padding: 10px 70px;
             font-size: 2rem;
@@ -45,30 +43,51 @@
             }
         }
     }
-
-}
-
-@media only screen and (max-width :550px){
-
-    .home__text-wrapper h1{
-        font-size: 3rem;
-        line-height: 5rem; 
+    
+    /* Styles pour les icônes sociales */
+    &__social {
+        display: flex;
+        justify-content: center;
+        column-gap: 1.25rem;
+        margin-top: 2rem;
+        
+        &-icon {
+            font-size: 1.75rem;
+            color: var(--yellow-theme-main-color);
+            transition: 0.3s;
+            
+            &:hover {
+                transform: translateY(-5px);
+                color: var(--yellow-theme-main-color);
+                opacity: 0.8;
+            }
+        }
     }
-
 }
-@media only screen and (max-width :551px) and (max-width: 768px){
+
+@media only screen and (max-width: 550px){
     .home__text-wrapper h1{
         font-size: 3rem;
-        line-height: rem; 
+        line-height: 5rem;
     }
     
+    .home__social-icon {
+        font-size: 1.25rem;
+    }
 }
-@media only screen and (max-width :769px)and (max-width : 990px){
+
+@media only screen and (min-width: 551px) and (max-width: 768px){
     .home__text-wrapper h1{
         font-size: 3rem;
-        line-height: 4rem; 
-    } 
-    
+        line-height: 4rem;
+    }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 990px){
+    .home__text-wrapper h1{
+        font-size: 3rem;
+        line-height: 4rem;
+    }
 }
 
 @keyframes typingEffectAnimation{
@@ -79,4 +98,3 @@
         width: 100%;
     }
 }
-

@@ -84,7 +84,7 @@ const About = () => {
                             ))}
                         </ul>
                     </Animate></div>
-                <div className="about__content__servicesWrapper">
+                {/* <div className="about__content__servicesWrapper">
                     <Animate
                         play
                         duration={1.5}
@@ -110,7 +110,7 @@ const About = () => {
                             </div>
                         </div>
                         </Animate>
-                </div>
+                </div> */}
             </div>
         </section>
     )

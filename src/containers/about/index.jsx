@@ -3,7 +3,7 @@ import { BsInfoCircleFill } from "react-icons/bs";
 import PageHeaderContent from "../../components/pageHeaderContent";
 import { Animate } from 'react-simple-animate'
 import './styles.scss';
-import ProfileImage from '../../images/147629152.jpeg'; // Updated image path
+import ProfileImage from '../../images/147629152.jpeg';
 
 const personalDetails = [
     {
@@ -37,16 +37,13 @@ const About = () => {
             />
             <div className="about__content">
                 <div className="about__content__personalWrapper">
+                    {/* Section Image à gauche */}
                     <Animate
                         play
                         duration={1.5}
                         delay={1}
-                        start={{
-                            transform: "translateX(-900px)",
-                        }}
-                        end={{
-                            transform: "translatex(0px)",
-                        }}>
+                        start={{ transform: "translateX(-900px)" }}
+                        end={{ transform: "translatex(0px)" }}>
                         <div className="profile-section">
                             <div className="profile-image-container">
                                 <img 
@@ -56,35 +53,37 @@ const About = () => {
                                 />
                             </div>
                             <h3>Full-stack developer</h3>
-                            <p>I am a Full-Stack Developer gifted in design,
+                            <p>
+                                I am a Full-Stack Developer gifted in design,
                                 website development and maintenance.
                                 In-depth skills in HTML/CSS (Bootstrap),
                                 Javascript, front-end frameworks (like React) and
                                 back-end framework (Laravel). Passionate about solving
                                 problems and the creation of technological solutions
                                 innovative. Strong ability to work in a team and
-                                manage projects from start to finish.</p>
+                                manage projects from start to finish.
+                            </p>
                         </div>
                     </Animate>
+
+                    {/* Section Info à droite */}
                     <Animate
                         play
                         duration={1.5}
                         delay={1}
-                        start={{
-                            transform: "translateX(500px)",
-                        }}
-                        end={{
-                            transform: "translatex(0px)",
-                        }}>
-                        <h3 className="personalInformationHeaderText">Personal Information</h3>
-                        <ul>
-                            {personalDetails.map((item, i) => (
-                                <li key={i}>
-                                    <span className="titre">{item.label}</span>
-                                    <span className="value">{item.Value}</span>
-                                </li>
-                            ))}
-                        </ul>
+                        start={{ transform: "translateX(500px)" }}
+                        end={{ transform: "translatex(0px)" }}>
+                        <div className="personal-info">
+                            <h3 className="personalInformationHeaderText">Personal Information</h3>
+                            <ul>
+                                {personalDetails.map((item, i) => (
+                                    <li key={i}>
+                                        <span className="titre">{item.label}</span>
+                                        <span className="value">{item.Value}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
                     </Animate>
                 </div>
             </div>

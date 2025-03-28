@@ -8,48 +8,49 @@ import ImageFour from '../../images/image4.jpg';
 import ImageFive from '../../images/image5.jpg';
 import ImageSix from '../../images/image6.jpg';
 import "./styles.scss";
+import { UilGithubAlt } from '@iconscout/react-unicons';
 
 const portfolioData = [
     {
         id: 1,
         name: "Login System",
         image: ImageOne,
-        link: '#',
+        link: 'https://github.com/achraftes',
         tech: ['React', 'Node.js', 'MongoDB']
     },
     {
         id: 2,
         name: "Contact Form",
         image: ImageTwo,
-        link: '#',
+        link: 'https://github.com/achraftes',
         tech: ['React', 'Formik', 'Yup']
     },
     {
         id: 3,
         name: "E-commerce Platform",
         image: ImageThree,
-        link: '#',
+        link: 'https://github.com/achraftes',
         tech: ['React', 'Redux', 'Stripe']
     },
     {
         id: 4,
         name: "About Page",
         image: ImageFour,
-        link: '#',
+        link: 'https://github.com/achraftes',
         tech: ['SCSS', 'React', 'Framer Motion']
     },
     {
         id: 5,
         name: "Service Portal",
         image: ImageFive,
-        link: '#',
+        link: 'https://github.com/achraftes',
         tech: ['React', 'GraphQL', 'Apollo']
     },
     {
         id: 6,
         name: "Contact API",
         image: ImageSix,
-        link: '#',
+        link: 'https://github.com/achraftes',
         tech: ['Node.js', 'Express', 'PostgreSQL']
     }
 ];
@@ -78,9 +79,15 @@ const Portfolio = () => {
                                             <span key={index}>{tech}</span>
                                         ))}
                                     </div>
-                                    <button className="view-project-btn"> 
+                                    <a
+                                        href={item.link}
+                                        className="view-project-btn"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        <UilGithubAlt size="20" />
                                         View Project
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                         </div>

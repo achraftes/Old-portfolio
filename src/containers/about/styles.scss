@@ -114,13 +114,15 @@
         }
 
         .cv-buttons-container {
-          display: grid;
-          gap: 15px;
+          display: flex;
+          gap: 20px;
           margin-top: 40px;
+          justify-content: center;
 
           .cv-button {
-            display: block;
-            padding: 12px 30px;
+            flex: 0 1 auto;
+            padding: 12px 25px;
+            min-width: 160px;
             background-color: var(--yellow-theme-main-color);
             color: #000;
             border: 2px solid transparent;
@@ -130,7 +132,7 @@
             cursor: pointer;
             text-decoration: none;
             text-align: center;
-            font-size: 1.6rem;
+            font-size: 1.5rem;
 
             &:hover {
               background-color: transparent;
@@ -138,6 +140,12 @@
               color: var(--yellow-theme-main-color);
               transform: translateY(-3px);
               box-shadow: 0 5px 15px rgba(255, 221, 64, 0.4);
+            }
+
+            @media (max-width: 480px) {
+              width: 100%;
+              min-width: auto;
+              padding: 12px 15px;
             }
           }
         }

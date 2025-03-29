@@ -50,7 +50,7 @@ const About = () => {
                         start={{ transform: "translateX(-900px)" }}
                         end={{ transform: "translatex(0px)" }}
                     >
-                        <div className="profile-section">
+                        <div className="profile-section"> <br /> <br />
                             <div className="profile-image-container">
                                 <img 
                                     src={ProfileImage} 

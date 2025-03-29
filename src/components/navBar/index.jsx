@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaBars } from "react-icons/fa";
 import { HiX } from "react-icons/hi";
 import { Link } from "react-router-dom";
@@ -33,21 +33,35 @@ const data = [
 
 const Navbar = () => {
     const [toggleicon, setToggleicon] = useState(false);
+    
     const handleToggleicon = () => {
         setToggleicon(!toggleicon);
     };
+
+    // Empêche le défilement de la page quand le menu est ouvert
+    useEffect(() => {
+        if (toggleicon) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'visible';
+        }
+    }, [toggleicon]);
 
     return (
         <nav className="navbar">
             <div className="navbar__container">
                 <Link to={'/'} className="navbar__container__logo">
-                     C H I K R A B A N E
+                    C H I K R A B A N E
                 </Link>
                 
                 <ul className={`navbar__container__menu ${toggleicon ? "active" : ""}`}>
                     {data.map((item, key) => (
                         <li key={key} className="navbar__container__menu__item">
-                            <Link className="navbar__container__menu__item__links" to={item.to}>
+                            <Link 
+                                className="navbar__container__menu__item__links" 
+                                to={item.to}
+                                onClick={() => setToggleicon(false)}
+                            >
                                 {item.label}
                             </Link>
                         </li>

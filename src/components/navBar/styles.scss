@@ -1,3 +1,4 @@
+// styles.scss
 .navbar {
     background-color: var(--yellow-theme-nav-background-color);
     height: 80px;
@@ -6,12 +7,15 @@
     align-items: center;
     font-size: 1.2rem;
     position: sticky;
+    top: 0;
+    z-index: 1000;
 
     &__container {
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 100%;
+        max-width: 1200px;
         height: inherit;
         padding: 0 20px;
         position: relative;
@@ -21,7 +25,7 @@
             cursor: pointer;
             text-decoration: none;
             font-size: 2.5rem;
-            font-weight: bold;
+            font-weight: 700;
             flex-shrink: 0;
         }
 
@@ -31,13 +35,14 @@
             margin: 0;
             padding: 0;
             flex: 1;
-            justify-content: center;
+            justify-content: flex-end;
             align-items: center;
 
             &__item {
                 margin: 0 1.5rem;
                 font-size: 1.6rem;
                 text-align: center;
+                transition: all 0.3s ease;
 
                 &::after {
                     content: '';
@@ -58,6 +63,7 @@
                     text-decoration: none;
                     padding: 0.5rem;
                     display: block;
+                    transition: color 0.3s ease;
                 }
             }
         }
@@ -68,37 +74,55 @@
     display: none;
     color: var(--yellow-theme-main-color);
     cursor: pointer;
+    z-index: 1001;
 }
 
 @media only screen and (max-width: 768px) {
     .navbar__container {
         &__logo {
             font-size: 2rem;
+            max-width: 70%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         &__menu {
-            position: absolute;
+            position: fixed;
             top: 80px;
-            left: -100%;
+            left: 0;
+            transform: translateX(-100%);
             width: 100%;
             height: calc(100vh - 80px);
             flex-direction: column;
-            background-color: #181818;
-            transition: all 0.5s ease;
+            background-color: rgba(24, 24, 24, 0.98);
+            backdrop-filter: blur(10px);
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             padding: 20px 0;
+            overflow-y: auto;
+            z-index: 999;
 
             &.active {
-                left: 0;
+                transform: translateX(0);
             }
 
             &__item {
                 width: 100%;
                 margin: 0;
-                padding: 15px 0;
-                border-bottom: 1px solid #282828;
+                padding: 20px 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
                 &:last-child {
                     border-bottom: none;
+                }
+
+                &__links {
+                    font-size: 1.8rem;
+                    padding: 1rem;
+                }
+
+                &:hover::after {
+                    width: 0;
                 }
             }
         }
@@ -106,5 +130,21 @@
 
     .nav-icon {
         display: block;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .navbar__container {
+        &__logo {
+            font-size: 1.8rem;
+        }
+
+        &__menu {
+            &__item {
+                &__links {
+                    font-size: 1.6rem;
+                }
+            }
+        }
     }
 }

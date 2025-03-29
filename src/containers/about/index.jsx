@@ -4,7 +4,7 @@ import PageHeaderContent from "../../components/pageHeaderContent";
 import { Animate } from 'react-simple-animate';
 import './styles.scss';
 import ProfileImage from '../../images/147629152.jpeg';
-import CV from '../../assets/Chikrabane-CV_F.pdf'; // Import du CV
+import CV from '../../assets/Chikrabane-CV_F.pdf';
 
 const personalDetails = [
     {
@@ -30,6 +30,10 @@ const personalDetails = [
 ];
 
 const About = () => {
+    const handleViewCV = () => {
+        window.open(CV, '_blank');
+    };
+
     return (
         <section id="about" className="about">
             <PageHeaderContent
@@ -38,7 +42,7 @@ const About = () => {
             />
             <div className="about__content">
                 <div className="about__content__personalWrapper">
-                    {/* Section Image à gauche */}
+                    {/* Section Gauche */}
                     <Animate
                         play
                         duration={1.5}
@@ -65,18 +69,16 @@ const About = () => {
                                 innovative. Strong ability to work in a team and
                                 manage projects from start to finish.
                             </p>
-                            {/* Bouton de téléchargement */}
-                            <a 
-                                href={CV} 
-                                download="Chikrabane-CV.pdf"
-                                className="download-button"
+                            <button 
+                                className="cv-button view"
+                                onClick={handleViewCV}
                             >
-                                Download CV
-                            </a>
+                                View Full CV
+                            </button>
                         </div>
                     </Animate>
 
-                    {/* Section Info à droite */}
+                    {/* Section Droite */}
                     <Animate
                         play
                         duration={1.5}
@@ -94,6 +96,18 @@ const About = () => {
                                     </li>
                                 ))}
                             </ul>
+                            
+                            {/* Section Téléchargement CV */}
+                            <div className="cv-download-section">
+                                <h4>Download My CV</h4>
+                                <a 
+                                    href={CV} 
+                                    download="Chikrabane-Achraf-CV.pdf"
+                                    className="cv-button download"
+                                >
+                                    Download PDF Version
+                                </a>
+                            </div>
                         </div>
                     </Animate>
                 </div>

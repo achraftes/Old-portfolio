@@ -1,9 +1,10 @@
 import React from "react";
 import { BsInfoCircleFill } from "react-icons/bs";
 import PageHeaderContent from "../../components/pageHeaderContent";
-import { Animate } from 'react-simple-animate'
+import { Animate } from 'react-simple-animate';
 import './styles.scss';
 import ProfileImage from '../../images/147629152.jpeg';
+import CV from '../../assets/Chikrabane-CV_F.pdf'; // Import du CV
 
 const personalDetails = [
     {
@@ -43,8 +44,9 @@ const About = () => {
                         duration={1.5}
                         delay={1}
                         start={{ transform: "translateX(-900px)" }}
-                        end={{ transform: "translatex(0px)" }}>
-                        <div className="profile-section"> <br /> <br />
+                        end={{ transform: "translatex(0px)" }}
+                    >
+                        <div className="profile-section">
                             <div className="profile-image-container">
                                 <img 
                                     src={ProfileImage} 
@@ -63,6 +65,14 @@ const About = () => {
                                 innovative. Strong ability to work in a team and
                                 manage projects from start to finish.
                             </p>
+                            {/* Bouton de téléchargement */}
+                            <a 
+                                href={CV} 
+                                download="Chikrabane-CV.pdf"
+                                className="download-button"
+                            >
+                                Download CV
+                            </a>
                         </div>
                     </Animate>
 
@@ -72,7 +82,8 @@ const About = () => {
                         duration={1.5}
                         delay={1}
                         start={{ transform: "translateX(500px)" }}
-                        end={{ transform: "translatex(0px)" }}>
+                        end={{ transform: "translatex(0px)" }}
+                    >
                         <div className="personal-info">
                             <h3 className="personalInformationHeaderText">Personal Information</h3>
                             <ul>

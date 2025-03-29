@@ -65,6 +65,29 @@
           line-height: 1.8;
           color: #cccccc;
           padding-right: 30px;
+          margin-bottom: 25px;
+        }
+
+        .download-button {
+          display: inline-block;
+          padding: 12px 30px;
+          background-color: var(--yellow-theme-main-color);
+          color: #000 !important;
+          text-decoration: none;
+          border-radius: 25px;
+          font-weight: 600;
+          transition: all 0.3s ease;
+          border: 2px solid transparent;
+          font-size: 1.6rem;
+          cursor: pointer;
+
+          &:hover {
+            background-color: transparent;
+            border-color: var(--yellow-theme-main-color);
+            color: var(--yellow-theme-main-color) !important;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 221, 64, 0.4);
+          }
         }
       }
 

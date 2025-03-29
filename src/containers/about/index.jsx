@@ -42,7 +42,7 @@ const About = () => {
             />
             <div className="about__content">
                 <div className="about__content__personalWrapper">
-                    {/* Section Gauche */}
+                    {/* Left Section */}
                     <Animate
                         play
                         duration={1.5}
@@ -65,20 +65,14 @@ const About = () => {
                                 In-depth skills in HTML/CSS (Bootstrap),
                                 Javascript, front-end frameworks (like React) and
                                 back-end framework (Laravel). Passionate about solving
-                                problems and the creation of technological solutions
-                                innovative. Strong ability to work in a team and
-                                manage projects from start to finish.
+                                problems and creating innovative technological solutions.
+                                Strong ability to work in a team and manage projects
+                                from start to finish.
                             </p>
-                            <button 
-                                className="cv-button view"
-                                onClick={handleViewCV}
-                            >
-                                View Full CV
-                            </button>
                         </div>
                     </Animate>
 
-                    {/* Section Droite */}
+                    {/* Right Section */}
                     <Animate
                         play
                         duration={1.5}
@@ -97,15 +91,20 @@ const About = () => {
                                 ))}
                             </ul>
                             
-                            {/* Section Téléchargement CV */}
-                            <div className="cv-download-section">
-                                <h4>Download My CV</h4>
+                            {/* CV Buttons Section */}
+                            <div className="cv-buttons-container">
+                                <button 
+                                    className="cv-button"
+                                    onClick={handleViewCV}
+                                >
+                                    View CV
+                                </button>
                                 <a 
                                     href={CV} 
-                                    download="Chikrabane-Achraf-CV.pdf"
-                                    className="cv-button download"
+                                    download="Chikrabane-CV.pdf"
+                                    className="cv-button"
                                 >
-                                    Download PDF Version
+                                    Download CV
                                 </a>
                             </div>
                         </div>

@@ -67,31 +67,6 @@
           padding-right: 30px;
           margin-bottom: 25px;
         }
-
-        .cv-button {
-          display: inline-block;
-          padding: 12px 30px;
-          border-radius: 25px;
-          font-weight: 600;
-          transition: all 0.3s ease;
-          cursor: pointer;
-          text-decoration: none;
-          font-size: 1.6rem;
-
-          &.view {
-            background-color: var(--yellow-theme-main-color);
-            color: #000;
-            border: 2px solid transparent;
-
-            &:hover {
-              background-color: transparent;
-              border-color: var(--yellow-theme-main-color);
-              color: var(--yellow-theme-main-color);
-              transform: translateY(-3px);
-              box-shadow: 0 5px 15px rgba(255, 221, 64, 0.4);
-            }
-          }
-        }
       }
 
       .personal-info {
@@ -138,27 +113,31 @@
           }
         }
 
-        .cv-download-section {
+        .cv-buttons-container {
+          display: grid;
+          gap: 15px;
           margin-top: 40px;
-          padding: 25px;
-          background: rgba(255, 221, 64, 0.1);
-          border-radius: 10px;
-          text-align: center;
 
-          h4 {
-            color: var(--yellow-theme-main-color);
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-          }
+          .cv-button {
+            display: block;
+            padding: 12px 30px;
+            background-color: var(--yellow-theme-main-color);
+            color: #000;
+            border: 2px solid transparent;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            font-size: 1.6rem;
 
-          .cv-button.download {
-            background: transparent;
-            border: 2px solid var(--yellow-theme-main-color);
-            color: var(--yellow-theme-main-color);
-            
             &:hover {
-              background: rgba(255, 221, 64, 0.2);
-              transform: translateY(-2px);
+              background-color: transparent;
+              border-color: var(--yellow-theme-main-color);
+              color: var(--yellow-theme-main-color);
+              transform: translateY(-3px);
+              box-shadow: 0 5px 15px rgba(255, 221, 64, 0.4);
             }
           }
         }

@@ -10,7 +10,7 @@ const Contact = () => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
-        description: ''
+        message: ''  // Changé de 'description' à 'message' pour correspondre au nom du champ
     });
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState(false);
@@ -30,7 +30,17 @@ const Contact = () => {
         setSuccess(false);
         setError(false);
 
-        // Replace these with your actual EmailJS Service ID, Template ID, and Public Key
+        // Vérification supplémentaire pour s'assurer que tous les champs sont remplis
+        if (!formData.name || !formData.email || !formData.message) {
+            setLoading(false);
+            setError(true);
+            console.error('All fields are required');
+            return;
+        }
+
+        // Log pour débogage
+        console.log("Sending form data:", formData);
+
         emailjs.sendForm(
             "service_uukp567",
             "template_ut0sed1",
@@ -39,20 +49,21 @@ const Contact = () => {
           }
         )
         .then((result) => {
+            console.log("Email sent successfully:", result.text);
             setLoading(false);
             setSuccess(true);
             // Reset form
             setFormData({
                 name: '',
                 email: '',
-                description: ''
+                message: ''
             });
-            setTimeout(() => setSuccess(false), 5000); // Hide success message after 5 seconds
+            setTimeout(() => setSuccess(false), 5000);
         }, (error) => {
             setLoading(false);
             setError(true);
             console.error('Email sending failed:', error);
-            setTimeout(() => setError(false), 5000); // Hide error message after 5 seconds
+            setTimeout(() => setError(false), 5000);
         });
     };
 
@@ -154,15 +165,15 @@ const Contact = () => {
                                 </div>
                                 <div className="descriptionWarpper">
                                     <textarea 
-                                        name="description" 
+                                        name="message" 
                                         className="inputDescription" 
                                         type="text" 
                                         rows="5" 
                                         required 
-                                        value={formData.description}
+                                        value={formData.message}  // Changé de formData.description à formData.message
                                         onChange={handleChange}
                                     />
-                                    <label htmlFor="description" className="descriptionLabel">Description</label>
+                                    <label htmlFor="message" className="descriptionLabel">Description</label>
                                 </div>
                                 <div className="contact__form-button-container">
                                     <button type="submit" disabled={loading}>

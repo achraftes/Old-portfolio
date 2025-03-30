@@ -11,15 +11,19 @@ const skillsData = [
       { skillName: "HTML", percentage: "90" },
       { skillName: "CSS", percentage: "60" },
       { skillName: "JAVASCRIPT", percentage: "75" },
+      { skillName: "TYPESCRIPT", percentage: "65" },
       { skillName: "PHP", percentage: "80" },
       { skillName: "PYTHON", percentage: "60" },
+      { skillName: "JAVA", percentage: "70" },
+      { skillName: "C", percentage: "55" },
+      { skillName: "C++", percentage: "50" },
       { skillName: "MYSQL", percentage: "80" },
       { skillName: "MONGODB", percentage: "80" },
       { skillName: "UML", percentage: "80" },
       { skillName: "AGILE", percentage: "90" },
       { skillName: "BOOSTRAPOS", percentage: "50" },
       { skillName: "REACT.JS", percentage: "70" },
-      { skillName: "LARAVEL", percentage: "90" },
+      { skillName: "LARAVEL", percentage: "90" }
     ]
   },
   {
@@ -37,9 +41,16 @@ const skillsData = [
       { skillName: "POO", percentage: "70" },
       { skillName: "CLOUD COMPUTING", percentage: "50" },
       { skillName: "JWT", percentage: "50" },
+      { skillName: "DOCKER", percentage: "60" },
+      { skillName: "KUBERNETES", percentage: "50" },
+      { skillName: "LINUX", percentage: "70" },
+      { skillName: "FIREBASE", percentage: "60" },
+      { skillName: "FIGMA", percentage: "55" },
+      { skillName: "TRELLO", percentage: "50" }
     ]
   }
 ];
+
 
 const Skills = () => {
   const [activeTab, setActiveTab] = useState(0);

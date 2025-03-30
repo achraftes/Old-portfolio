@@ -31,10 +31,10 @@ const Contact = () => {
         setError(false);
 
         // Replace these with your actual EmailJS Service ID, Template ID, and Public Key
-        emailjs  .sendForm(
+        emailjs.sendForm(
             "service_uukp567",
-             "template_ut0sed1",
-              formRef.current, {
+            "template_ut0sed1",
+            formRef.current, {
               publicKey: "6fv3EJpygju4hjwqA",
           }
         )
@@ -170,8 +170,16 @@ const Contact = () => {
                                         <i className="bx bx-send"></i>
                                     </button>
                                 </div>
-                                {success && <div className="success-message">Message sent successfully!</div>}
-                                {error && <div className="error-message">Failed to send message. Please try again.</div>}
+                                {success && 
+                                    <div className="success-message">
+                                        Message sent successfully! Thank you for contacting me.
+                                    </div>
+                                }
+                                {error && 
+                                    <div className="error-message">
+                                        Failed to send message. Please try again or contact me directly.
+                                    </div>
+                                }
                             </form>
                         </div>
                     </div>

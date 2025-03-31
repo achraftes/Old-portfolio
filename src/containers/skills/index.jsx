@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BsInfoCircleFill } from "react-icons/bs";
+import { FaCode, FaTools } from "react-icons/fa";
 import PageHeaderContent from "../../components/pageHeaderContent";
 import './styles.scss';
 
-// Utilisation des données importées
 const skillsData = [
   {
     label: "Développement",
+    icon: <FaCode size={22} />,
     data: [
       { skillName: "HTML", percentage: "90" },
       { skillName: "CSS", percentage: "60" },
@@ -21,13 +22,14 @@ const skillsData = [
       { skillName: "MONGODB", percentage: "80" },
       { skillName: "UML", percentage: "80" },
       { skillName: "AGILE", percentage: "90" },
-      { skillName: "BOOSTRAPOS", percentage: "50" },
+      { skillName: "BOOTSTRAP", percentage: "50" },
       { skillName: "REACT.JS", percentage: "70" },
       { skillName: "LARAVEL", percentage: "90" }
     ]
   },
   {
     label: "Outils",
+    icon: <FaTools size={22} />,
     data: [
       { skillName: "JIRA", percentage: "90" },
       { skillName: "GIT", percentage: "90" },
@@ -51,17 +53,37 @@ const skillsData = [
   }
 ];
 
-
 const Skills = () => {
   const [activeTab, setActiveTab] = useState(0);
+  const [visibleItems, setVisibleItems] = useState(8);
+  const [selectedSkill, setSelectedSkill] = useState(null);
 
-  // Fonction pour calculer la couleur basée sur le pourcentage
+  // Function to determine skill level text
+  const getSkillLevel = (percentage) => {
+    const value = parseInt(percentage);
+    if (value >= 80) return "Expert";
+    if (value >= 60) return "Intermédiaire";
+    return "Débutant";
+  };
+
+  // Function to get color based on percentage
   const getSkillColor = (percentage) => {
     const value = parseInt(percentage);
     if (value >= 80) return "var(--yellow-theme-main-color)";
     if (value >= 60) return "#4CAF50";
     return "#2196F3";
   };
+  
+  // Load more skills
+  const loadMore = () => {
+    setVisibleItems(prevValue => prevValue + 8);
+  };
+
+  // Reset visible items when tab changes
+  useEffect(() => {
+    setVisibleItems(8);
+    setSelectedSkill(null);
+  }, [activeTab]);
 
   return (
     <section id="skills" className="skills">
@@ -72,38 +94,73 @@ const Skills = () => {
       
       <div className="skills__tabs">
         {skillsData.map((category, index) => (
-          <button 
+          <button
             key={index}
             className={`skills__tabs__button ${activeTab === index ? 'active' : ''}`}
             onClick={() => setActiveTab(index)}
           >
-            {category.label || `Catégorie ${index + 1}`}
+            <span className="skills__tabs__button__icon">{category.icon}</span>
+            <span className="skills__tabs__button__text">{category.label}</span>
           </button>
         ))}
       </div>
-
-      <div className="skills__container">
-        {skillsData[activeTab].data.map((skill, index) => (
-          <div 
-            key={index} 
-            className="skills__container__item"
-            style={{"--animation-delay": `${index * 0.1}s`}}
-          >
-            <div className="skills__container__item__info">
-              <span className="skills__container__item__name">{skill.skillName}</span>
-              <span className="skills__container__item__percentage">{skill.percentage}%</span>
+      
+      <div className="skills__content">
+        <div className="skills__content__list">
+          {skillsData[activeTab].data.slice(0, visibleItems).map((skill, index) => (
+            <div
+              key={index}
+              className={`skills__content__list__item ${selectedSkill === index ? 'active' : ''}`}
+              onClick={() => setSelectedSkill(selectedSkill === index ? null : index)}
+            >
+              <div className="skills__content__list__item__inner">
+                <div className="skill-front">
+                  <div className="skill-header">
+                    <h3>{skill.skillName}</h3>
+                    <span className="skill-percentage" style={{color: getSkillColor(skill.percentage)}}>
+                      {skill.percentage}%
+                    </span>
+                  </div>
+                  <div className="skill-bar-container">
+                    <div 
+                      className="skill-bar" 
+                      style={{
+                        width: `${skill.percentage}%`,
+                        backgroundColor: getSkillColor(skill.percentage)
+                      }}
+                    ></div>
+                  </div>
+                </div>
+                <div className="skill-back">
+                  <div className="skill-detail">
+                    <h4>Niveau: {getSkillLevel(skill.percentage)}</h4>
+                    <p>Expérience avec {skill.skillName}</p>
+                    <div className="skill-level-indicator">
+                      {[...Array(5)].map((_, i) => (
+                        <div 
+                          key={i} 
+                          className={`level-dot ${i < Math.floor(parseInt(skill.percentage) / 20) ? 'filled' : ''}`}
+                          style={{
+                            backgroundColor: i < Math.floor(parseInt(skill.percentage) / 20) ? 
+                              getSkillColor(skill.percentage) : 'transparent'
+                          }}
+                        ></div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="skills__container__item__bar">
-              <div 
-                className="skills__container__item__bar__fill" 
-                style={{
-                  width: `${skill.percentage}%`,
-                  backgroundColor: getSkillColor(skill.percentage)
-                }}
-              ></div>
-            </div>
+          ))}
+        </div>
+        
+        {visibleItems < skillsData[activeTab].data.length && (
+          <div className="skills__content__load-more">
+            <button className="load-more-btn" onClick={loadMore}>
+              Afficher plus
+            </button>
           </div>
-        ))}
+        )}
       </div>
     </section>
   );

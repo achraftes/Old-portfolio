@@ -1,36 +1,43 @@
-export const data={
+export const data = {
     experience: [
-        {title:"E-commerce-App",
-        subTitle:"Rabat,Morocco ",
-        description:"an ecommerce site that displays products",
-        },
-        {title:"Weather ",
-        subTitle:"Rabat,Morocco",
-        description:"an application that manages weather conditions",
-        },
-        {title:"Travel management",
-        subTitle:"Rabat,Morocco",
-        description:"a travel booking site",
-        },
-        {title:"Portfoli",
-        subTitle:"Rabat,Morocco",
-        description:"a site that introduces me",
-        },
-        {title:"Crud php",
-        subTitle:"Rabat,Morocco",
-        description:"a people data management system",
-        },   
+      {
+        title: "Frontend Developer",
+        subTitle: "TechSolutions Inc., Rabat, Morocco",
+        period: "Jan 2023 - Present",
+        description: "Developed responsive e-commerce applications using React, Redux, and Node.js. Improved site performance by 40% through code optimization and modern techniques."
+      },
+      {
+        title: "Web Developer Intern",
+        subTitle: "WeatherTech Solutions, Rabat, Morocco",
+        period: "Jun 2022 - Dec 2022",
+        description: "Created a weather forecast application using React and OpenWeatherMap API. Implemented geolocation features and responsive design for all devices."
+      },
+      {
+        title: "Freelance Developer",
+        subTitle: "Self-employed, Rabat, Morocco",
+        period: "Jan 2022 - May 2022",
+        description: "Designed and developed a travel booking platform for local tour companies. Integrated payment gateway and booking management system."
+      }
     ],
     education: [
-        {title:"Specialized institute of applied technology Ntic ",
-        subTitle:"Rabat,Morocco",
-        description:"Technician specialized in digital development",
-        },
-        {title:" Imam al Ghazali high school",
-        subTitle:"Rabat,Morocco ",
-        description:"Baccalaureate in physical science French option",
-        },
-       
-           
+      {
+        title: "Specialized Institute of Applied Technology NTIC",
+        subTitle: "Rabat, Morocco",
+        period: "2020 - 2022",
+        description: "Specialized Technician in Digital Development. GPA: 3.8/4.0. Specialized courses in web development, mobile applications, and database management."
+      },
+      {
+        title: "Imam Al Ghazali High School",
+        subTitle: "Rabat, Morocco",
+        period: "2017 - 2020",
+        description: "Baccalaureate in Physical Sciences with French option. Honor student with distinction in mathematics and physics."
+      }
+    ],
+    skills: [
+      "JavaScript", "React.js", "Node.js", "HTML5/CSS3", "SASS/SCSS", 
+      "Redux", "MongoDB", "Express.js", "Git", "Responsive Design", 
+      "UI/UX", "REST APIs", "PHP", "MySQL"
     ]
-}
+  };
+  
+  export default data;

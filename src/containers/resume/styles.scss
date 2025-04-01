@@ -104,12 +104,12 @@
   }
   
   // Skills section
-  .skills {
+  .technical-skills-panel {
     width: 100%;
     padding: 20px;
     margin-top: 20px;
     
-    &__header-text {
+    &__heading {
       display: inline-block;
       color: var(--yellow-theme-sub-text-color);
       font-size: 24px;
@@ -141,14 +141,14 @@
       }
     }
     
-    &__content {
+    &__grid {
       display: flex;
       flex-wrap: wrap;
       gap: 15px;
       margin-top: 20px;
     }
     
-    &__item {
+    &__card {
       background: rgba(0, 0, 0, 0.2);
       color: var(--yellow-theme-sub-text-color);
       border: 1px solid var(--yellow-theme-main-color);
@@ -165,25 +165,8 @@
     }
   }
   
-  @media only screen and (max-width: 768px) {
-    .timeline {
-      flex-direction: column;
-      
-      &__experience, 
-      &__education {
-        width: 100%;
-        margin-bottom: 30px;
-      }
-    }
-  }
-  
   @media only screen and (max-width: 480px) {
-    .skills__content {
+    .technical-skills-panel__grid {
       justify-content: center;
-    }
-    
-    .vertical-timeline-element-date {
-      margin-top: 10px;
-      margin-left: 0 !important;
     }
   }

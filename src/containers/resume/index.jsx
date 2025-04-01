@@ -142,11 +142,11 @@ const Resume = () => {
         </div>
       </div>
 
-      <div className="skills">
-        <h3 className="skills__header-text">Technical Skills</h3>
-        <div className="skills__content">
+      <div className="technical-skills-panel">
+        <h3 className="technical-skills-panel__heading">Technical Skills</h3>
+        <div className="technical-skills-panel__grid">
           {resumeData.skills.map((skill, index) => (
-            <div className="skills__item" key={index}>
+            <div className="technical-skills-panel__card" key={index}>
               {skill}
             </div>
           ))}

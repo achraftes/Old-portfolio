@@ -24,7 +24,7 @@ const resumeData = {
     },
     {
       title: "Freelance Developer",
-      subTitle: "Self-employed, Rabat, Morocco",
+      subTitle: "Self-employed, Temara, Morocco",
       period: "Jan 2022 - May 2022",
       description: "Designed and developed a travel booking platform for local tour companies. Integrated payment gateway and booking management system."
     }

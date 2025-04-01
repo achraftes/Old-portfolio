@@ -11,9 +11,15 @@ import './styles.scss';
 const resumeData = {
   experience: [
     {
+      title: "Développeur",
+      subTitle: "EF2conseil, À distance",
+      period: "Mai 2025 - Present",
+      description: "Développement de sites web et d'applications utilisant WordPress, Laravel, JavaScript et autres technologies. Travail à distance sur plusieurs projets clients."
+    },
+    {
       title: "Frontend Developer",
       subTitle: "TechSolutions Inc., Rabat, Morocco",
-      period: "Jan 2023 - Present",
+      period: "Jan 2023 -Dec 2024",
       description: "Developed responsive e-commerce applications using React, Redux, and Node.js. Improved site performance by 40% through code optimization and modern techniques."
     },
     {
@@ -46,7 +52,7 @@ const resumeData = {
   skills: [
     "JavaScript", "React.js", "Node.js", "HTML5/CSS3", "SASS/SCSS", 
     "Redux", "MongoDB", "Express.js", "Git", "Responsive Design", 
-    "UI/UX", "REST APIs", "PHP", "MySQL"
+    "UI/UX", "REST APIs", "PHP", "MySQL", "WordPress", "Laravel"
   ]
 };
 
